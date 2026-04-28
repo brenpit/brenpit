@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<title>CV – Brendan Pitard</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #1c1c1c;
+  --ink-2: #3d3d3d;
+  --ink-3: #6b6b6b;
+  --ink-4: #9a9a9a;
+  --paper: #f4f1eb;
+  --paper-2: #ede9e0;
+  --accent: #c94a1e;
+  --paper-3: #e4dfd3;
+  --accent-dim: rgba(201,74,30,0.12);
+  --rule: rgba(28,28,28,0.12);
+  --serif: 'Playfair Display', Georgia, serif;
+  --mono: 'DM Mono', 'Courier New', monospace;
+  --sans: 'DM Sans', system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--sans);
+  font-size: 8.5pt;
+  color: var(--ink);
+  background: #ffffff;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+.page {
+  width: 210mm;
+  min-height: auto;
+  margin: 20px auto;
+  background: #ffffff;
+  padding: 13mm 13mm 13mm 13mm;
+  box-shadow: 0 4px 24px rgba(0,0,0,.15);
+}
+
+/* ── EN-TÊTE ── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+  padding-bottom: 10px;
+}
+
+.photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 15%;
+  border: 2px solid #2c5f8a;
+  flex-shrink: 0;
+}
+
+.header-left { flex: 1; }
+
+.name {
+  font-family: 'EB Garamond', serif;
+  font-size: 26pt;
+  font-weight: 500;
+  letter-spacing: -.5px;
+  line-height: 1.1;
+  color: #1a1a1a;
+}
+
+.title {
+  font-size: 8.5pt;
+  font-weight: 400;
+  color: #2c5f8a;
+  margin-top: 3px;
+  letter-spacing: .02em;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  margin-top: 8px;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--mono);
+  font-size: 7pt;
+  color: var(--ink-3);
+}
+
+.contact-item svg {
+  width: 10px; height: 10px;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.contact-item a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.contact-item span {
+  color: var(--ink-3);
+}
+
+/* ── SECTION ── */
+.section { margin-bottom: 14px; }
+
+.section-title {
+  font-family: var(--mono);
+  font-size: 7pt;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 7px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid var(--rule);
+}
+
+#profil .section-title {
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 3px;
+}
+
+/* ── PROFIL ── */
+.profil {
+  font-size: 8.5pt;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+/* ── COMPÉTENCES ── */
+.skills-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.skill-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.skill-cat {
+  font-family: var(--mono);
+  font-size: 7pt;
+  font-weight: 500;
+  color: var(--accent);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.skill-items {
+  font-size: 8pt;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+
+/* ── EXPÉRIENCES ── */
+.exp { margin-bottom: 10px; }
+
+.exp-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.exp-title {
+  font-size: 8.5pt;
+  font-weight: 500;
+  color: var(--ink);
+  font-family: var(--sans);
+}
+
+.exp-date {
+  font-family: var(--mono);
+  font-size: 7pt;
+  color: var(--ink-4);
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: .05em;
+}
+
+.exp-company {
+  font-family: var(--mono);
+  font-size: 7.5pt;
+  color: var(--ink-3);
+  margin-bottom: 5px;
+}
+
+.exp-ul {
+  list-style: none;
+  padding: 0;
+}
+
+.exp-ul li {
+  font-size: 8.2pt;
+  color: var(--ink-2);
+  line-height: 1.65;
+  padding-left: 10px;
+  position: relative;
+  margin-bottom: 1px;
+}
+
+.exp-ul li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* ── FORMATION ── */
+.edu { margin-bottom: 6px; }
+
+.edu-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.edu-title {
+  font-size: 8.5pt;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+.edu-date {
+  font-family: var(--mono);
+  font-size: 7pt;
+  color: var(--ink-4);
+  white-space: nowrap;
+  letter-spacing: .05em;
+}
+
+.edu-sub {
+  font-family: var(--mono);
+  font-size: 7.5pt;
+  color: var(--ink-3);
+}
+
+/* ── LANGUES ── */
+.langs {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.lang-item { font-size: 8pt; color: var(--ink-2); }
+.lang-item strong { color: var(--ink); font-weight: 500; }
+
+/* ── PROJETS ── */
+.proj { margin-bottom: 8px; }
+
+.proj-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.proj-title {
+  font-size: 8.5pt;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.proj-link {
+  font-size: 7.5pt;
+  color: #2c5f8a;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.proj-sub {
+  font-size: 8pt;
+  color: #555;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+/* séparateurs légers */
+.exp + .exp {
+  padding-top: 8px;
+  border-top: 1px dashed var(--rule);
+}
+
+.proj + .proj {
+  padding-top: 6px;
+  border-top: 1px dashed var(--rule);
+}
+
+@media print {
+  body { background: white; }
+  .page { margin: 0; box-shadow: none; }
+}
+
+.portfolio-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--mono);
+  font-size: 7.5pt;
+  font-weight: 500;
+  color: var(--paper);
+  background: var(--accent);
+  padding: 4px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  letter-spacing: .06em;
+  transition: opacity .15s;
+}
+
+.portfolio-btn:hover { opacity: .85; }
+@page { background: #ffffff; margin: 0; }
+@media print {
+  .exp { page-break-inside: avoid; }
+  .proj { page-break-inside: avoid; }
+  .edu { page-break-inside: avoid; }
+  .page { padding-bottom: 18mm; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+<!-- EN-TÊTE -->
+<div class="header">
+<img alt="Brendan Pitard" class="photo" src="data:image/jpeg;base64,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"/>
+<div class="header-left">
+<div class="name">Brendan Pitard</div>
+<div class="title">Product Manager · AI &amp; Automation · QA Lead</div>
+<div class="contact-row">
+<div class="contact-item">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+<span>pitard.brendan@gmail.com</span>
+</div>
+<div class="contact-item">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.6 3.38 2 2 0 0 1 3.57 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.54a16 16 0 0 0 6.29 6.29l.91-.91a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+<span>+33 7 49 73 72 85</span>
+</div>
+<div class="contact-item">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+<span>Saint-Malo, France</span>
+</div>
+<div class="contact-item">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="2" x2="22" y1="12" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+<span>Open to relocation · Remote</span>
+</div>
+<div class="contact-item">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+<a href="https://brenpit.github.io/brenpit/" target="_blank" style="font-family:var(--mono);font-size:7pt;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);text-decoration:none;border:1px solid var(--accent);padding:2px 8px;border-radius:2px;">↗ Portfolio</a>
+</div>
+<div class="contact-item">
+<svg fill="none" stroke="currentColor" stroke-width="2" viewbox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect height="12" width="4" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+<a href="https://www.linkedin.com/in/brendan-pitard-9b85351b6/fr" target="_blank">LinkedIn</a>
+</div>
+
+</div>
+</div>
+</div>
+<!-- PROFIL -->
+<div class="section" id="profil">
+<div class="section-title">Profile</div>
+<div class="profil">
+      Product Manager with experience working on high-volume digital products (1,000+ daily active users), specialising in automation and AI-powered features. Comfortable across the full product cycle, from scoping requirements to tracking key metrics. Holds an MSc in International Relations with a specialisation in International Project Management (University of Groningen). At ease in distributed, international environments.
+    </div>
+</div>
+<!-- COMPÉTENCES -->
+<div class="section">
+<div class="section-title">Core Skills</div>
+<div class="skills-grid">
+<div class="skill-cat">Product &amp; Project</div>
+<div class="skill-items">Jira, Asana, Trello · Agile / Scrum / Kanban · Roadmap &amp; prioritisation · PRD · A/B Testing · Functional QA</div>
+<div class="skill-cat">Data &amp; Analytics</div>
+<div class="skill-items">GA4, Looker, Kibana · Funnel &amp; cohort analysis · KPI definition (activation, retention, conversion) · SQL (basic queries)</div>
+<div class="skill-cat">AI / LLM</div>
+<div class="skill-items">Prompt engineering · LLM output evaluation · AI-driven personalisation · Resume/job matching logic · Iteration &amp; optimisation</div>
+<div class="skill-cat">Tech &amp; Tools</div>
+<div class="skill-items">Postman, Studio 3T · API integration &amp; testing · Chrome extensions · Browser automation · Figma · ERP Tryton</div>
+</div>
+</div>
+<!-- EXPÉRIENCES -->
+<div class="section">
+<div class="section-title">Work Experience</div>
+<div class="exp">
+<div class="exp-top">
+<div class="exp-title">Product Manager</div>
+<div class="exp-date">Nov. 2024 to Mar. 2026</div>
+</div>
+<div class="exp-company">Zippia · Remote · US / BR / CA · Job search platform and labour market analysis tool.</div>
+<ul class="exp-ul">
+<li>Led the Job Application Assistant (JAA), a large-scale application automation tool integrating with major ATS platforms (Workday, Greenhouse, Lever) and a Chrome extension. 1,000+ daily active users.</li>
+<li>QA lead: wrote test cases and ran manual tests across all flows (ATS integrations, Chrome extension, onboarding).</li>
+<li>Bug triage: reproduced and qualified reported issues, created tickets, and validated fixes before closing.</li>
+<li>Blocked releases on critical bugs; worked directly with developers to prioritise and resolve issues.</li>
+<li>Coordinated team test campaigns: assigned scope, tracked coverage and consolidated results.</li>
+<li>Led LLM-powered resume tailoring, improving the interview rate per application from 2% to 5%.</li>
+<li>Prompt engineering for job/profile matching, targeted rewriting and evaluation criteria definition (relevance, consistency, acceptance rate).</li>
+<li>Optimised onboarding flows covering CV upload and creation, preference qualification, and extension activation, raising the completion rate to 20%.</li>
+<li>Data-driven tracking of LLM performance and key funnels (onboarding, activation, conversion).</li>
+<li>Coordinated engineering, data and marketing teams around the roadmap, functional specs and A/B tests.</li>
+<li>Contributed to monetisation strategy and the evolution towards advanced automation modes, including autopilot and cloud-based automation.</li>
+</ul>
+</div>
+<div class="exp">
+<div class="exp-top">
+<div class="exp-title">Customer Success Manager</div>
+<div class="exp-date">Jun. 2021 to Dec. 2021</div>
+</div>
+<div class="exp-company">Brasil y Belleza · Barcelona, Spain · Brazilian luxury goods importer.</div>
+<ul class="exp-ul">
+<li>Deployed customer satisfaction metrics to improve service quality and reduce costs (delivery, customs, inventory).</li>
+<li>Designed and analysed satisfaction surveys; reporting and KPI tracking.</li>
+<li>Developed B2B partner and prospect network across three markets (Portugal, Spain, France).</li>
+<li>End-to-end order logistics management, from suppliers through invoicing to delivery.</li>
+</ul>
+</div>
+<div class="exp">
+<div class="exp-top">
+<div class="exp-title">Client Relations Officer</div>
+<div class="exp-date">Sept. 2020 to Dec. 2020</div>
+</div>
+<div class="exp-company">Effia · Saint-Malo, France</div>
+<ul class="exp-ul">
+<li>Client relationship management, needs identification and project support.</li>
+<li>Administrative coordination with notaries and ERP data updates.</li>
+<li>Schedule and deadline tracking (invoicing, disputes, claims).</li>
+</ul>
+</div>
+<div class="exp">
+<div class="exp-top">
+<div class="exp-title">Project Manager</div>
+<div class="exp-date">Sept. 2017 to Sept. 2020</div>
+</div>
+<div class="exp-company">Ibmundi · Rio de Janeiro, Brazil · International relations simulation platform (Model United Nations exercises).</div>
+<ul class="exp-ul">
+<li>Full project ownership covering planning, budgeting, timelines, risk management, and quality control, with regular steering committee facilitation.</li>
+<li>Developed commercial and academic partnerships with universities, embassies and consulates; team recruitment and management.</li>
+<li>Oversaw institutional compliance and coordinated the organisation of simulation events.</li>
+</ul>
+</div>
+</div>
+<!-- PROJETS PERSONNELS -->
+<div class="section">
+<div class="section-title">Personal Projects</div>
+<div class="proj">
+<div class="proj-top">
+<div class="proj-title">Lift Log · Strength Training Tracker</div>
+<div class="exp-date">Ongoing</div>
+</div>
+<div class="proj-sub">Progressive Web App, built from scratch  ·  <a class="proj-link" href="https://brenpit.github.io/liftlog/liftlog.html" target="_blank">Live demo ↗</a></div>
+<ul class="exp-ul">
+<li>Logs sets, reps and weight per exercise; manages weekly training splits.</li>
+<li>Tracks personal records (PRs) with history and progress visualisation.</li>
+<li>Bodyweight tracking over time with interactive charts.</li>
+<li>Stack: Firebase (Auth + Firestore), PWA, designed for offline use, Dark mode UI</li>
+</ul>
+</div>
+<div class="proj">
+<div class="proj-top">
+<div class="proj-title">Personal Portfolio</div>
+<div class="exp-date"></div>
+</div>
+<div class="proj-sub">Personal portfolio website.  ·  <a class="proj-link" href="https://brenpit.github.io/brenpit/" target="_blank">View site ↗</a></div>
+</div>
+<div class="proj">
+<div class="proj-top">
+<div class="proj-title">Volunteer, Assistant Project Manager / Developer</div>
+<div class="exp-date">2010 to 2018</div>
+</div>
+<div class="proj-sub">Project Rose Online</div>
+<ul class="exp-ul">
+<li>Managed software and graphic projects; wrote technical and functional specifications.</li>
+</ul>
+</div>
+</div>
+<!-- FORMATION -->
+<div class="section">
+<div class="section-title">Education</div>
+<div class="edu">
+<div class="edu-top">
+<div class="edu-title">MSc International Relations, Specialisation in International Project Management</div>
+<div class="edu-date">2023 to 2024</div>
+</div>
+<div class="edu-sub">University of Groningen, the Netherlands</div>
+</div>
+<div class="edu">
+<div class="edu-top">
+<div class="edu-title">BSc International Relations and International Business</div>
+<div class="edu-date">2016 to 2020</div>
+</div>
+<div class="edu-sub">Universidade IBMEC, Rio de Janeiro, Brazil</div>
+</div>
+</div>
+<!-- LANGUES -->
+<div class="section">
+<div class="section-title">Languages</div>
+<div class="langs">
+<div class="lang-item"><strong>French</strong> · Native</div>
+<div class="lang-item"><strong>English</strong> · Fluent</div>
+<div class="lang-item"><strong>Portuguese</strong> · Fluent</div>
+<div class="lang-item"><strong>Spanish</strong> · Intermediate</div>
+</div>
+</div>
+<!-- ENGAGEMENT -->
+<div class="section">
+<div class="section-title">Volunteering</div>
+<div class="profil">AFS American Field Service, Auvergne-Franche-Comté region (2012 to 2014). Mentored and supported international high school students; organised monthly events and group meetups.</div>
+</div>
+<!-- INTÉRÊTS -->
+<div class="section">
+<div class="section-title">Interests</div>
+<div class="profil">Weightlifting · Dog sports · Astronomy · Technology · Video games</div>
+</div>
+</div>
+</body>
+</html>
